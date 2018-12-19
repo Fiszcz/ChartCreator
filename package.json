@@ -3,8 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@handsontable-pro/react": "^2.1.0",
+    "@material-ui/core": "^3.6.2",
+    "@material-ui/icons": "^3.0.1",
+    "classnames": "^2.2.6",
+    "handsontable-pro": "^6.2.1",
+    "plotly.js": "^1.42.5",
+    "prop-types": "latest",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-plotly.js": "^2.2.0",
     "react-scripts": "2.1.1"
   },
   "scripts": {
