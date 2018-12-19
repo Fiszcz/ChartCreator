@@ -8,6 +8,18 @@ export const SET_TITLE_AXIS_X = 'SET_TITLE_AXIS_X';
 export const SET_TITLE_AXIS_Y = 'SET_TITLE_AXIS_Y';
 
 /*
+ * other constants
+ */
+
+export const ChartTypes = {
+    PIE: 'PIE',
+    BAR_HORIZONTAL: 'BAR_HORIZONTAL',
+    BAR_VERTICAL: 'BAR_VERTICAL',
+    LINEAR: 'LINEAR',
+    POINT: 'POINT',
+};
+
+/*
  * action creators
  */
 
@@ -19,10 +31,10 @@ export function changeTypeChart(typeChart) {
     return { type: CHANGE_TYPE_CHART, typeChart };
 }
 
-export function setTitleAxisX(title) {
-    return { type: SET_TITLE_AXIS_X, title};
+export function setTitleAxisX(titleAxis) {
+    return { type: SET_TITLE_AXIS_X, titleAxis };
 }
 
-export function setTitleAxisY(title) {
-    return { type: SET_TITLE_AXIS_Y, title};
+export function setTitleAxisY(titleAxis) {
+    return { type: SET_TITLE_AXIS_Y, titleAxis };
 }
