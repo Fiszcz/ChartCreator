@@ -10,10 +10,10 @@ const initialState = {
     title: "",
     titleAxisX: "",
     titleAxisY: "",
-    typeChart: ChartTypes.BAR_VERTICAL
+    typeChart: 'bar-vertical'
 };
 
-function basicSettingsChartReducer(state = initialState, action) {
+export function basicSettingsChartReducer(state = initialState, action) {
     switch (action.type) {
         case SET_TITLE:
             return {...state, title: action.title};

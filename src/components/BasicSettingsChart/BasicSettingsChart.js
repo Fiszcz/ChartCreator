@@ -9,11 +9,19 @@ import MenuItem from "@material-ui/core/MenuItem";
 
 export class BasicSettingsChart extends React.Component {
 
+    state = {
+        title: this.props.title || "",
+        titleAxisX: this.props.titleAxisX || "",
+        titleAxisY: this.props.titleAxisY || "",
+        typeChart: this.props.typeChart || ""
+    };
+
     render() {
         return <>
             <Grid item xs={11}>
                 <TextField
                     label="Tytuł wykresu"
+                    value={this.state.title}
                     style={{margin: 'auto'}}
                     placeholder="Wprowadź tytuł wykresu"
                     margin="normal"
@@ -22,6 +30,7 @@ export class BasicSettingsChart extends React.Component {
                     InputLabelProps={{
                         shrink: true,
                     }}
+                    onChange={this.handleChangeTitle}
                 />
             </Grid>
             <Grid container justify={"center"} style={{marginTop: '3px', marginBottom: '14px'}} spacing={16}>
@@ -30,50 +39,77 @@ export class BasicSettingsChart extends React.Component {
                         <FormControl variant="outlined" fullWidth>
                             <InputLabel htmlFor="outlined-chart-type">Typ wykresu</InputLabel>
                             <Select
-                                value={""}
+                                value={this.state.typeChart}
                                 input={<OutlinedInput name="chart" id="outlined-chart-type"/>}
+                                onChange={this.handleChangeTypeChart}
                             >
-                                <MenuItem style={{paddingLeft: 0, paddingRight: 0}} value="">
+                                <MenuItem value="">
                                     <em>Nie wybrany</em>
                                 </MenuItem>
                                 <MenuItem value={'pie'}>Kołowy</MenuItem>
-                                <MenuItem value={'bar'}>Słupkowy</MenuItem>
                                 <MenuItem value={'linear'}>Liniowy</MenuItem>
                                 <MenuItem value={'point'}>Punktowy</MenuItem>
                                 <MenuItem value={'bar-vertical'}>Słupkowy (pionowy)</MenuItem>
+                                <MenuItem value={'bar-horizontal'}>Słupkowy (poziomy)</MenuItem>
                             </Select>
                         </FormControl>
                     </Grid>
                     <Grid item xs={6}>
                         <TextField
                             label="Etykieta osi X"
+                            value={this.state.titleAxisX}
                             style={{margin: 'auto'}}
                             placeholder="Wprowadź nazwę etykiety osi X"
                             margin="normal"
                             fullWidth
-                            disabled
                             variant={"outlined"}
                             InputLabelProps={{
                                 shrink: true,
                             }}
+                            onChange={this.handleChangeTitleAxisX}
                         />
                     </Grid>
                     <Grid item xs={6}>
                         <TextField
                             label="Etykieta osi Y"
+                            value={this.state.titleAxisY}
                             style={{margin: 'auto'}}
                             placeholder="Wprowadź nazwę etykiety osi Y"
                             margin="normal"
-                            disabled
                             fullWidth
                             variant={"outlined"}
                             InputLabelProps={{
                                 shrink: true,
                             }}
+                            onChange={this.handleChangeTitleAxisY}
                         />
                     </Grid>
                 </Grid>
             </Grid>
         </>
     }
+
+    handleChangeTitle = (e) => {
+        const editedTitle = e.target.value;
+        this.props.setTitle(editedTitle);
+        this.setState({title: editedTitle})
+    };
+
+    handleChangeTitleAxisX = (e) => {
+        const editedTitle = e.target.value;
+        this.props.setTitleAxisX(editedTitle);
+        this.setState({titleAxisX: editedTitle})
+    };
+
+    handleChangeTitleAxisY = (e) => {
+        const editedTitle = e.target.value;
+        this.props.setTitleAxisY(editedTitle);
+        this.setState({titleAxisY: editedTitle})
+    };
+
+    handleChangeTypeChart = (e) => {
+        const selectedTypeChart = e.target.value;
+        this.props.changeTypeChart(selectedTypeChart);
+        this.setState({typeChart: selectedTypeChart});
+    };
 }

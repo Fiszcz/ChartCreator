@@ -8,18 +8,6 @@ export const SET_TITLE_AXIS_X = 'SET_TITLE_AXIS_X';
 export const SET_TITLE_AXIS_Y = 'SET_TITLE_AXIS_Y';
 
 /*
- * other constants
- */
-
-export const ChartTypes = {
-    PIE: 'PIE',
-    BAR_HORIZONTAL: 'BAR_HORIZONTAL',
-    BAR_VERTICAL: 'BAR_VERTICAL',
-    LINEAR: 'LINEAR',
-    POINT: 'POINT',
-};
-
-/*
  * action creators
  */
 

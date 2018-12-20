@@ -4,7 +4,7 @@ import {withStyles} from "@material-ui/core";
 import 'handsontable-pro/dist/handsontable.full.css';
 import Grid from "@material-ui/core/Grid";
 import {DataTableWithStyle} from "../DataTable/DataTable";
-import {BasicSettingsChart} from "../BasicSettingsChart/BasicSettingsChart";
+import {BasicSettingsChartContainer} from "../../containers/basicSettingsChartContainer";
 
 const styles = {
     card: {
@@ -22,7 +22,7 @@ class EditingPart extends React.Component {
 
         return <Card className={classes.card}>
             <Grid container justify={"center"} style={{marginTop: '12px', marginBottom: '10px'}} spacing={16}>
-                <BasicSettingsChart/>
+                <BasicSettingsChartContainer/>
                 <DataTableWithStyle/>
             </Grid>
         </Card>;
