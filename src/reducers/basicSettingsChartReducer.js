@@ -1,6 +1,5 @@
 import {
     CHANGE_TYPE_CHART,
-    ChartTypes,
     SET_TITLE,
     SET_TITLE_AXIS_X,
     SET_TITLE_AXIS_Y

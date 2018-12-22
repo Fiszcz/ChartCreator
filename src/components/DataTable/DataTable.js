@@ -21,16 +21,16 @@ class DataTable extends React.Component {
     constructor(props) {
         super(props);
         this.data = [
-            ["","", "", "", "", ""],
-            ["","", "Ford", "Volvo", "Toyota", "Honda"],
-            ["","2016", 10, 11, 12, 13],
-            ["","2017", 20, 11, 14, 13],
-            ["","2017", 20, 11, 14, 13],
-            ["","2017", 20, 11, 14, 13],
-            ["","2017", 20, 11, 14, 13],
-            ["","2017", 20, 11, 14, 13],
-            ["","2017", 20, 11, 14, 13],
-            ["","2018", 30, 15, 12, 13]
+            ["", "", "", "", "", ""],
+            ["", "", "Ford", "Volvo", "Toyota", "Honda"],
+            ["", "2016", 10, 11, 12, 13],
+            ["", "2017", 20, 11, 14, 13],
+            ["", "2017", 20, 11, 14, 13],
+            ["", "2017", 20, 11, 14, 13],
+            ["", "2017", 20, 11, 14, 13],
+            ["", "2017", 20, 11, 14, 13],
+            ["", "2017", 20, 11, 14, 13],
+            ["", "2018", 30, 15, 12, 13]
         ];
         this.hotSettings = {
             fixedColumnLeft: true,
@@ -51,9 +51,9 @@ class DataTable extends React.Component {
                 else if (index === 1)
                     return "";
                 else
-                    return String.fromCharCode(index+63);
+                    return String.fromCharCode(index + 63);
             },
-            height: 50,
+            height: 300,
             colWidths: [16],
             rowHeaderWidth: 85
         };
@@ -86,10 +86,10 @@ class DataTable extends React.Component {
             <Grid container justify={"center"} spacing={16}>
                 <Grid item xs={11} container spacing={16}>
                     <Grid item xs={12}>
-                        <div id="hot-app">
+                        <div id="hot-app" style={{overflow: 'hidden'}}>
                             <HotTable ref={this.hotTableComponent} data={this.data} settings={this.hotSettings}
-                                      width="80%" height="400"
-                                      stretchH="all" style={{overflow: 'auto'}}/>
+                                      width="80%"
+                                      stretchH="all"/>
                         </div>
                     </Grid>
                 </Grid>
@@ -98,7 +98,7 @@ class DataTable extends React.Component {
     }
 
     componentDidMount() {
-        this.hotTableComponent.current.hotInstance.setCellMeta(1,1,'className', 'yellow');
+        this.hotTableComponent.current.hotInstance.setCellMeta(1, 1, 'className', 'yellow');
     }
 }
 

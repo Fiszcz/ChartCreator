@@ -18,7 +18,11 @@ export class Chart extends React.Component {
                         },
                         {type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
                     ]}
-                    layout={{title: 'A Fancy Plot'}}
+                    layout={{
+                        title: this.props.title || '',
+                        yaxis: {title: this.props.titleAxisY},
+                        xaxis: {title: this.props.titleAxisX},
+                    }}
                 />
             </Grid>
         </Grid>;
