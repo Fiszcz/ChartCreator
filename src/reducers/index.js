@@ -3,6 +3,6 @@ import {basicSettingsChartReducer} from "./basicSettingsChartReducer";
 import {combineReducers} from "redux";
 
 export const chartsApp = combineReducers({
-    annotationsReducer,
-    basicSettingsChartReducer,
+    annotations: annotationsReducer,
+    basicSettings: basicSettingsChartReducer,
 });

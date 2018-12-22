@@ -3,10 +3,10 @@ import {Chart} from "../components/Chart/Chart";
 
 const mapStateToProps = state => {
     return {
-        typeChart: state.typeChart,
-        title: state.title,
-        titleAxisX: state.titleAxisX,
-        titleAxisY: state.titleAxisY,
+        typeChart: state.basicSettings.typeChart,
+        title: state.basicSettings.title,
+        titleAxisX: state.basicSettings.titleAxisX,
+        titleAxisY: state.basicSettings.titleAxisY,
     }
 };
 
