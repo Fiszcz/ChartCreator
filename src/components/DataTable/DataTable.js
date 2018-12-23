@@ -20,18 +20,6 @@ class DataTable extends React.Component {
 
     constructor(props) {
         super(props);
-        this.data = [
-            ["", "", "", "", "", ""],
-            ["", "", "Ford", "Volvo", "Toyota", "Honda"],
-            ["", "2016", 10, 11, 12, 13],
-            ["", "2017", 20, 11, 14, 13],
-            ["", "2017", 20, 11, 14, 13],
-            ["", "2017", 20, 11, 14, 13],
-            ["", "2017", 20, 11, 14, 13],
-            ["", "2017", 20, 11, 14, 13],
-            ["", "2017", 20, 11, 14, 13],
-            ["", "2018", 30, 15, 12, 13]
-        ];
         this.hotSettings = {
             fixedColumnLeft: true,
             manualColumnResize: true,
@@ -55,7 +43,22 @@ class DataTable extends React.Component {
             },
             height: 300,
             colWidths: [16],
-            rowHeaderWidth: 85
+            rowHeaderWidth: 40,
+            cells: (row, col) => {
+                let cellProperties = {};
+
+                if (row === 0 || col === 0) {
+                    cellProperties.readOnly = true;
+                }
+                if ((row > 1 && col === 0) || (col > 1 && row === 0)) {
+                    cellProperties.renderer = this.renderColor;
+                }
+                if ((row === 1 && col > 0) || (col === 1 && row > 0)) {
+                    cellProperties.renderer = this.accentForHeaders;
+                }
+
+                return cellProperties;
+            },
         };
         this.hotTableComponent = React.createRef();
     }
@@ -87,7 +90,7 @@ class DataTable extends React.Component {
                 <Grid item xs={11} container spacing={16}>
                     <Grid item xs={12}>
                         <div id="hot-app" style={{overflow: 'hidden'}}>
-                            <HotTable ref={this.hotTableComponent} data={this.data} settings={this.hotSettings}
+                            <HotTable ref={this.hotTableComponent} data={this.props.data} settings={this.hotSettings}
                                       width="80%"
                                       stretchH="all"/>
                         </div>
@@ -97,9 +100,14 @@ class DataTable extends React.Component {
         </>;
     }
 
-    componentDidMount() {
-        this.hotTableComponent.current.hotInstance.setCellMeta(1, 1, 'className', 'yellow');
-    }
+    renderColor = (instance, td, row, col, prop, value, cellProperties) => {
+        td.style.background = value;
+    };
+
+    accentForHeaders = (instance, td, row, col, prop, value, cellProperties) => {
+        td.style.background = "#00000020";
+        td.textContent = value;
+    };
 }
 
 export const DataTableWithStyle = withStyles(styles)(DataTable);

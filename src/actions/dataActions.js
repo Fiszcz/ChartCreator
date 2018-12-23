@@ -4,6 +4,8 @@ import {addColorsToColumns, addColorsToRows} from "../utils/colors";
 export const IMPORT_FROM_CSV = 'IMPORT_FROM_CSV';
 export const IMPORT_SUCCESS = 'IMPORT_SUCCESS';
 export const IMPORT_FAILURE = 'IMPORT_FAILURE';
+export const ADD_ROW = 'ADD_ROW';
+export const ADD_COLUMN = 'ADD_COLUMN';
 
 export function importFromCSV(file) {
     return { type: IMPORT_FROM_CSV, file };
@@ -15,6 +17,14 @@ export function importSuccess(data) {
 
 export function importFailure(errors) {
     return { type: IMPORT_FAILURE, errors };
+}
+
+export function addRow() {
+    return { type: ADD_ROW };
+}
+
+export function addColumng() {
+    return { type: ADD_COLUMN };
 }
 
 export function initialiseImportDataFromCSV(file) {
