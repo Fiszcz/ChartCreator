@@ -1,15 +1,16 @@
 import {DataTableWithStyle} from "../components/DataTable/DataTable";
 import {connect} from "react-redux";
-import {addColumn, addRow} from "../actions/dataActions";
+import {addColumn, addRow, endExportCSV} from "../actions/dataActions";
 
 const mapStateToProps = (state) => {
-    return {data: state.data};
+    return {data: state.data, exportCSV: state.exportCSV};
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         addNewRow: () => dispatch(addRow()),
         addNewColumn: () => dispatch(addColumn()),
+        endExportCSV: () => dispatch(endExportCSV()),
     }
 };
 

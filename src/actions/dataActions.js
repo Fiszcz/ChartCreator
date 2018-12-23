@@ -4,8 +4,18 @@ import {addColorsToColumns, addColorsToRows} from "../utils/colors";
 export const IMPORT_FROM_CSV = 'IMPORT_FROM_CSV';
 export const IMPORT_SUCCESS = 'IMPORT_SUCCESS';
 export const IMPORT_FAILURE = 'IMPORT_FAILURE';
+export const INIT_EXPORT_CSV = 'INIT_EXPORT_CSV';
+export const END_EXPORT_CSV = 'END_EXPORT_CSV';
 export const ADD_ROW = 'ADD_ROW';
 export const ADD_COLUMN = 'ADD_COLUMN';
+
+export function initialiseExportCSV() {
+    return { type: INIT_EXPORT_CSV };
+}
+
+export function endExportCSV() {
+    return { type: END_EXPORT_CSV };
+}
 
 export function importFromCSV(file) {
     return { type: IMPORT_FROM_CSV, file };

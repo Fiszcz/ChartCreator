@@ -47,7 +47,7 @@ class ApplicationBar extends React.Component {
                             Importuj dane z CSV
                         </Button>
                     </label>
-                    <Button color="inherit" className={classes.goBackButton}>
+                    <Button color="inherit" className={classes.goBackButton} onClick={this.handleExportCSV}>
                         <SaveIcon className={classes.icon}/>
                         Zapisz jako CSV
                     </Button>
@@ -59,6 +59,10 @@ class ApplicationBar extends React.Component {
     handleFileSelect = (event) => {
         const file = event.target.files[0];
         this.props.importFileContent(file);
+    }
+
+    handleExportCSV = () => {
+        this.props.initExportCSV();
     }
 }
 

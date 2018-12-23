@@ -6,7 +6,6 @@ import {HotTable} from "@handsontable-pro/react";
 import * as React from "react";
 import ViewWeek from "@material-ui/icons/ViewWeek";
 import {withStyles} from "@material-ui/core";
-import Handsontable from 'handsontable-pro';
 
 const styles = {
     rowAddIcon: {
@@ -117,6 +116,28 @@ class DataTable extends React.Component {
         td.style.background = "#00000020";
         td.textContent = value;
     };
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        if (nextProps.exportCSV){
+            const exportPlugin = this.hotTableComponent.current.hotInstance.getPlugin('exportFile');
+            exportPlugin.downloadFile('csv', {
+                bom: false,
+                columnDelimiter: ',',
+                columnHeaders: false,
+                fileExtension: 'csv',
+                filename: 'Charts-project_[YYYY]-[MM]-[DD]',
+                mimeType: 'text/csv',
+                rowDelimiter: '\r\n',
+                range: [1, 1, this.props.data.length - 1, this.props.data[0].length - 1],
+                rowHeaders: false
+            });
+            this.props.endExportCSV();
+
+            return false;
+        }
+        return true;
+    }
+
 }
 
 export const DataTableWithStyle = withStyles(styles)(DataTable);
