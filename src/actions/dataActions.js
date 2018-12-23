@@ -23,7 +23,7 @@ export function addRow() {
     return { type: ADD_ROW };
 }
 
-export function addColumng() {
+export function addColumn() {
     return { type: ADD_COLUMN };
 }
 

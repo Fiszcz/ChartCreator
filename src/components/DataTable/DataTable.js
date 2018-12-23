@@ -6,6 +6,7 @@ import {HotTable} from "@handsontable-pro/react";
 import * as React from "react";
 import ViewWeek from "@material-ui/icons/ViewWeek";
 import {withStyles} from "@material-ui/core";
+import Handsontable from 'handsontable-pro';
 
 const styles = {
     rowAddIcon: {
@@ -75,11 +76,11 @@ class DataTable extends React.Component {
                         </Typography>
                     </Grid>
                     <Grid item xs={6} style={{textAlign: 'right'}}>
-                        <Button color="inherit" className={classes.goBackButton}>
+                        <Button color="inherit" className={classes.goBackButton} onClick={this.handleNewRow}>
                             <ViewWeek className={classnames(classes.icon, classes.rowAddIcon)}/>
                             Dodaj wiersz
                         </Button>
-                        <Button color="inherit" className={classes.goBackButton}>
+                        <Button color="inherit" className={classes.goBackButton} onClick={this.handleNewColumn}>
                             <ViewWeek className={classes.icon}/>
                             Dodaj kolumnę
                         </Button>
@@ -99,6 +100,14 @@ class DataTable extends React.Component {
             </Grid>
         </>;
     }
+
+    handleNewRow = () => {
+        this.props.addNewRow();
+    };
+
+    handleNewColumn = () => {
+        this.props.addNewColumn();
+    };
 
     renderColor = (instance, td, row, col, prop, value, cellProperties) => {
         td.style.background = value;
