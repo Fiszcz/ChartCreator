@@ -3,11 +3,11 @@ import {Chart} from "../components/Chart/Chart";
 
 const mapStateToProps = state => {
     return {
-        typeChart: state.basicSettings.typeChart,
-        title: state.basicSettings.title,
-        titleAxisX: state.basicSettings.titleAxisX,
-        titleAxisY: state.basicSettings.titleAxisY,
-        data: state.data,
+        typeChart: state.present.basicSettings.typeChart,
+        title: state.present.basicSettings.title,
+        titleAxisX: state.present.basicSettings.titleAxisX,
+        titleAxisY: state.present.basicSettings.titleAxisY,
+        data: state.present.data,
     }
 };
 

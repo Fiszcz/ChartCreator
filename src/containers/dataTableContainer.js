@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {addColumn, addRow, changeColor, changeData, endExportCSV} from "../actions/dataActions";
 
 const mapStateToProps = (state) => {
-    return {data: state.data, exportCSV: state.exportCSV};
+    return {data: JSON.parse(JSON.stringify(state.present.data)), exportCSV: state.present.exportCSV};
 };
 
 const mapDispatchToProps = dispatch => {

@@ -28,27 +28,31 @@ export function dataReducer(state = initialState, action) {
 }
 
 const changeData = (data, changes) => {
+    let newData = JSON.parse(JSON.stringify(data));
     changes.forEach(([row, prop, oldValue, newValue]) => {
-        data[row][prop] = newValue;
+        newData[row][prop] = newValue;
     });
-    return data.slice(0);
+    return newData;
 };
 
 const changeColor = (data, row, column, color) => {
-    data[row][column] = color;
-    return data.slice(0);
+    let newData = JSON.parse(JSON.stringify(data));
+    newData[row][column] = color;
+    return newData.slice(0);
 };
 
 const addNewRow = (data) => {
+    let newData = JSON.parse(JSON.stringify(data));
     let newRow = [getRandomColor(), "Nowy rekord"];
     for (let i = 2; data[0].length > i; i++)
         newRow.push(0);
-    data.push(newRow);
-    return data.slice(0);
+    newData.push(newRow);
+    return newData.slice(0);
 };
 
 const addNewColumn = (data) => {
-    data.map((row, index) => {
+    let newData = JSON.parse(JSON.stringify(data));
+    newData.map((row, index) => {
         switch(index){
             case 0:
                 row.push(getRandomColor());
@@ -61,5 +65,5 @@ const addNewColumn = (data) => {
                 return row;
         }
     });
-    return data.slice(0);
+    return newData.slice(0);
 };

@@ -5,9 +5,9 @@ import * as serviceWorker from './serviceWorker';
 import {App} from "./App";
 import {Provider} from "react-redux";
 import {createStore} from "redux";
-import {chartsApp} from "./reducers";
+import {undoableChartsApp} from "./reducers";
 
-const store = createStore(chartsApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(undoableChartsApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(<Provider store={store}>
         <App/>

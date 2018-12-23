@@ -28,7 +28,7 @@ class ApplicationBar extends React.Component {
                     Charts Project
                 </Typography>
                 <div style={{'flexGrow': 1, 'justifyContent': 'start'}}>
-                    <Button color="inherit" className={classes.goBackButton}>
+                    <Button color="inherit" className={classes.goBackButton} disabled={!this.props.canUndo} onClick={this.props.onUndo}>
                         <UndoIcon className={classes.icon}/>
                         Cofnij operację
                     </Button>

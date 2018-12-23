@@ -4,10 +4,10 @@ import {BasicSettingsChart} from "../components/BasicSettingsChart/BasicSettings
 
 const mapStateToProps = state => {
     return {
-        typeChart: state.basicSettings.typeChart,
-        title: state.basicSettings.title,
-        titleAxisX: state.basicSettings.titleAxisX,
-        titleAxisY: state.basicSettings.titleAxisY,
+        typeChart: state.present.basicSettings.typeChart,
+        title: state.present.basicSettings.title,
+        titleAxisX: state.present.basicSettings.titleAxisX,
+        titleAxisY: state.present.basicSettings.titleAxisY,
     }
 };
 
