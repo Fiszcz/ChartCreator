@@ -1,4 +1,4 @@
-import {ADD_COLUMN, ADD_ROW, CHANGE_COLOR, IMPORT_SUCCESS} from "../actions/dataActions";
+import {ADD_COLUMN, ADD_ROW, CHANGE_COLOR, CHANGE_DATA, IMPORT_SUCCESS} from "../actions/dataActions";
 import {getRandomColor} from "../utils/colors";
 
 const initialState = [
@@ -19,10 +19,19 @@ export function dataReducer(state = initialState, action) {
             return addNewRow(state);
         case CHANGE_COLOR:
             return changeColor(state, action.row, action.column, action.color);
+        case CHANGE_DATA:
+            return changeData(state, action.changes);
         default:
             return state;
     }
 }
+
+const changeData = (data, changes) => {
+    changes.forEach(([row, prop, oldValue, newValue]) => {
+        data[row][prop] = newValue;
+    });
+    return data.slice(0);
+};
 
 const changeColor = (data, row, column, color) => {
     data[row][column] = color;

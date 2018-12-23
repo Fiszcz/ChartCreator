@@ -1,21 +1,12 @@
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import classnames from "classnames";
 import {HotTable} from "@handsontable-pro/react";
 import * as React from "react";
-import ViewWeek from "@material-ui/icons/ViewWeek";
 import {withStyles} from "@material-ui/core";
 import {SketchPicker} from 'react-color';
 import './dataTable.css';
+import {DataTableHeaderWithStyle} from "./DataTableHeader";
 
 const styles = {
-    rowAddIcon: {
-        transform: 'rotate(90deg)',
-    },
-    icon: {
-        marginRight: '5px',
-    },
     cover: {
         position: 'fixed',
         top: '0px',
@@ -94,7 +85,11 @@ class DataTable extends React.Component {
                         editedColor: this.props.data[row][column],
                         editedCell: {row, column}
                     });
-            }
+            },
+            afterChange: (changes) => {
+                if (changes)
+                    this.props.changeData(changes);
+            },
         };
         this.hotTableComponent = React.createRef();
     }
@@ -103,25 +98,7 @@ class DataTable extends React.Component {
         const {classes} = this.props;
 
         return <>
-            <Grid container justify={"center"} spacing={16}>
-                <Grid item xs={11} container spacing={16}>
-                    <Grid item xs={6}>
-                        <Typography component="h2" variant="display1" gutterBottom>
-                            Dane do wykresu:
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={6} style={{textAlign: 'right'}}>
-                        <Button color="inherit" className={classes.goBackButton} onClick={this.handleNewRow}>
-                            <ViewWeek className={classnames(classes.icon, classes.rowAddIcon)}/>
-                            Dodaj wiersz
-                        </Button>
-                        <Button color="inherit" className={classes.goBackButton} onClick={this.handleNewColumn}>
-                            <ViewWeek className={classes.icon}/>
-                            Dodaj kolumnę
-                        </Button>
-                    </Grid>
-                </Grid>
-            </Grid>
+            <DataTableHeaderWithStyle {...this.props}/>
             <Grid container justify={"center"} spacing={16}>
                 <Grid item xs={11} container spacing={16}>
                     <Grid item xs={12}>
@@ -154,14 +131,6 @@ class DataTable extends React.Component {
 
         let editedCell = this.state.editedCell;
         this.props.changeColor(editedCell.row, editedCell.column, this.state.editedColor);
-    };
-
-    handleNewRow = () => {
-        this.props.addNewRow();
-    };
-
-    handleNewColumn = () => {
-        this.props.addNewColumn();
     };
 
     renderColor = (instance, td, row, col, prop, value, cellProperties) => {

@@ -9,6 +9,11 @@ export const END_EXPORT_CSV = 'END_EXPORT_CSV';
 export const ADD_ROW = 'ADD_ROW';
 export const ADD_COLUMN = 'ADD_COLUMN';
 export const CHANGE_COLOR = 'CHANGE_COLOR';
+export const CHANGE_DATA = 'CHANGE_DATA';
+
+export function changeData(changes) {
+    return { type: CHANGE_DATA, changes };
+}
 
 export function changeColor(row, column, color) {
     return { type: CHANGE_COLOR, row, column, color };
