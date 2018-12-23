@@ -52,7 +52,7 @@ export class Chart extends React.Component {
             for (let row = 2; row < data.length; row++) {
                 y.push(data[row][column]);
             }
-            dataToChart.push(generatorSet(x, y));
+            dataToChart.push({...generatorSet(x, y), name: data[1][column]});
         }
 
         console.log(dataToChart);
