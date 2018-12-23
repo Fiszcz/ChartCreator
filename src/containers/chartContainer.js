@@ -7,6 +7,7 @@ const mapStateToProps = state => {
         title: state.basicSettings.title,
         titleAxisX: state.basicSettings.titleAxisX,
         titleAxisY: state.basicSettings.titleAxisY,
+        data: state.data,
     }
 };
 

@@ -43,9 +43,6 @@ export class BasicSettingsChart extends React.Component {
                                 input={<OutlinedInput name="chart" id="outlined-chart-type"/>}
                                 onChange={this.handleChangeTypeChart}
                             >
-                                <MenuItem value="">
-                                    <em>Nie wybrany</em>
-                                </MenuItem>
                                 <MenuItem value={'pie'}>Kołowy</MenuItem>
                                 <MenuItem value={'linear'}>Liniowy</MenuItem>
                                 <MenuItem value={'point'}>Punktowy</MenuItem>

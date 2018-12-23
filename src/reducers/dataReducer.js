@@ -1,12 +1,13 @@
 import {ADD_COLUMN, ADD_ROW, CHANGE_COLOR, CHANGE_DATA, IMPORT_SUCCESS} from "../actions/dataActions";
 import {getRandomColor} from "../utils/colors";
+import {getRandomNumber} from "../utils/math";
 
 const initialState = [
         ["", "", getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()],
         ["", "Rok", "Ford", "Volvo", "Toyota", "Honda"],
-        [getRandomColor(), "2016", "10", "11", "12", "13"],
-        [getRandomColor(), "2017", "10", "11", "12", "13"],
-        [getRandomColor(), "2017", "10", "11", "12", "13"],
+        [getRandomColor(), "2016", getRandomNumber(), getRandomNumber(), getRandomNumber(), getRandomNumber()],
+        [getRandomColor(), "2017", getRandomNumber(), getRandomNumber(), getRandomNumber(), getRandomNumber()],
+        [getRandomColor(), "2018", getRandomNumber(), getRandomNumber(), getRandomNumber(), getRandomNumber()],
 ];
 
 export function dataReducer(state = initialState, action) {
