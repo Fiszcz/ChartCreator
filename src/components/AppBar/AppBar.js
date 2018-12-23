@@ -34,10 +34,19 @@ class ApplicationBar extends React.Component {
                     </Button>
                 </div>
                 <div>
-                    <Button color="inherit" className={classes.goBackButton}>
-                        <ArrowDownwardIcon className={classes.icon}/>
-                        Importuj dane z CSV
-                    </Button>
+                    <input
+                        accept=".csv"
+                        id="file-input"
+                        type="file"
+                        style={{display: 'none'}}
+                        onChange={this.handleFileSelect}
+                    />
+                    <label htmlFor="file-input">
+                        <Button color="inherit" component="span" className={classes.goBackButton}>
+                            <ArrowDownwardIcon className={classes.icon}/>
+                            Importuj dane z CSV
+                        </Button>
+                    </label>
                     <Button color="inherit" className={classes.goBackButton}>
                         <SaveIcon className={classes.icon}/>
                         Zapisz jako CSV
@@ -45,6 +54,11 @@ class ApplicationBar extends React.Component {
                 </div>
             </Toolbar>
         </AppBar>;
+    }
+
+    handleFileSelect = (event) => {
+        const file = event.target.files[0];
+        this.props.importFileContent(file);
     }
 }
 

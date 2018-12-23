@@ -23,6 +23,6 @@ export function basicSettingsChartReducer(state = initialState, action) {
         case CHANGE_TYPE_CHART:
             return {...state, typeChart: action.typeChart};
         default:
-            return state
+            return state;
     }
 }

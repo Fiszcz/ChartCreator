@@ -8,6 +8,7 @@
     "@material-ui/icons": "^3.0.1",
     "classnames": "^2.2.6",
     "handsontable-pro": "^6.2.1",
+    "papaparse": "^4.6.2",
     "plotly.js": "^1.42.5",
     "prop-types": "latest",
     "react": "^16.6.3",

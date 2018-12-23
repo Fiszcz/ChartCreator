@@ -2,14 +2,14 @@ import React from 'react';
 import {EditingPartWithStyle} from "./components/EditingPart/EditingPart";
 import './App.css';
 import Grid from "@material-ui/core/Grid";
-import {AppBarWithStyle} from "./components/AppBar/AppBar";
 import {ChartContainer} from "./containers/chartContainer";
+import {AppBarContainer} from "./containers/appBarContainer";
 
 export class App extends React.Component {
 
     render() {
         return <div>
-            <AppBarWithStyle/>
+            <AppBarContainer/>
             <Grid container>
                 <Grid item xs={6}>
                     <ChartContainer/>
