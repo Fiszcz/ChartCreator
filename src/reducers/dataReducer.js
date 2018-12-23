@@ -1,4 +1,4 @@
-import {ADD_COLUMN, ADD_ROW, IMPORT_SUCCESS} from "../actions/dataActions";
+import {ADD_COLUMN, ADD_ROW, CHANGE_COLOR, IMPORT_SUCCESS} from "../actions/dataActions";
 import {getRandomColor} from "../utils/colors";
 
 const initialState = [
@@ -17,10 +17,17 @@ export function dataReducer(state = initialState, action) {
             return addNewColumn(state);
         case ADD_ROW:
             return addNewRow(state);
+        case CHANGE_COLOR:
+            return changeColor(state, action.row, action.column, action.color);
         default:
             return state;
     }
 }
+
+const changeColor = (data, row, column, color) => {
+    data[row][column] = color;
+    return data.slice(0);
+};
 
 const addNewRow = (data) => {
     let newRow = [getRandomColor(), "Nowy rekord"];

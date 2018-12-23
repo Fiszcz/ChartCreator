@@ -5,7 +5,7 @@ import {AppBarWithStyle} from "../components/AppBar/AppBar";
 const mapDispatchToProps = dispatch => {
     return {
         importFileContent: (file) => {
-            dispatch(initialiseImportDataFromCSV(file));
+            initialiseImportDataFromCSV(file)(dispatch);
         },
         initExportCSV: () => {
             dispatch(initialiseExportCSV());
