@@ -52,7 +52,7 @@ export class Chart extends React.Component {
             for (let row = 2; row < data.length; row++) {
                 y.push(data[row][column]);
             }
-            dataToChart.push({...generatorSet(x, y), name: data[1][column]});
+            dataToChart.push({...generatorSet(x, y, data[0][column], data), name: data[1][column]});
         }
 
         console.log(dataToChart);
@@ -60,23 +60,52 @@ export class Chart extends React.Component {
         return dataToChart;
     };
 
-    createPieChartSet = (x, y) => {
-        return {type: 'pie', values: y, labels: x};
+    createPieChartSet = (x, y, color, data) => {
+        let colors = [];
+        for (let row = 2; row < data.length; row++)
+            colors.push(data[row][0]);
+        return {
+            type: 'pie',
+            values: y,
+            labels: x,
+            marker: {colors}
+        };
     };
 
-    createLinearChartSet = (x, y) => {
-        return {type: 'scatter', x, y};
+    createLinearChartSet = (x, y, color) => {
+        return {
+            type: 'scatter',
+            x,
+            y,
+            line: {color},
+        };
     };
 
-    createBarChartSet = (x, y) => {
-        return {type: 'bar', x, y};
+    createBarChartSet = (x, y, color) => {
+        return {
+            type: 'bar',
+            x,
+            y,
+            marker: {color}
+        };
     };
 
-    createBarHorizontalChartSet = (x, y) => {
-        return {type: 'bar', x: y, y: x, orientation: 'h'};
+    createBarHorizontalChartSet = (x, y, color) => {
+        return {
+            type: 'bar',
+            x: y,
+            y: x,
+            orientation: 'h',
+            marker: {color}
+        };
     };
 
-    createPointChartSet = (x, y) => {
-        return {mode: 'markers', x, y};
+    createPointChartSet = (x, y, color) => {
+        return {
+            mode: 'markers',
+            x,
+            y,
+            marker: {color},
+        };
     };
 }
