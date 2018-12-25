@@ -14,11 +14,26 @@ export class Chart extends React.Component {
                         title: this.props.title || '',
                         yaxis: {title: this.props.titleAxisY},
                         xaxis: {title: this.props.titleAxisX},
+                        annotations: this.createAnnotations(this.props.annotations)
                     }}
                 />
             </Grid>
         </Grid>;
     }
+
+    createAnnotations = (annotations) => {
+        return annotations.map((annotation) => {
+            return {
+                x: annotation.coordinateOx,
+                y: annotation.coordinateOy,
+                text: annotation.description,
+                showarrow: true,
+                arrowhead: 7,
+                ax: 0,
+                ay: -40,
+            }
+        })
+    };
 
     preparationDataToChart = () => {
         let generatorSet;
@@ -55,8 +70,6 @@ export class Chart extends React.Component {
             }
             dataToChart.push({...generatorSet(x, y, data[0][column], data), name: data[1][column]});
         }
-
-        console.log(dataToChart);
 
         return dataToChart;
     };
