@@ -59,11 +59,11 @@ class ApplicationBar extends React.Component {
     handleFileSelect = (event) => {
         const file = event.target.files[0];
         this.props.importFileContent(file);
-    }
+    };
 
     handleExportCSV = () => {
         this.props.initExportCSV();
-    }
+    };
 }
 
 export const AppBarWithStyle = withStyles(styles)(ApplicationBar);

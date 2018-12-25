@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import {ChartContainer} from "./containers/chartContainer";
 import {AppBarContainer} from "./containers/appBarContainer";
 import {withStyles} from "@material-ui/core";
+import {SnackBarMessageContainer} from "./containers/snackBarMessageContainer";
 
 const styles = {
     chartContainer: {
@@ -29,6 +30,7 @@ export class App extends React.Component {
                     <EditingPartWithStyle/>
                 </Grid>
             </Grid>
+            <SnackBarMessageContainer/>
         </div>
     };
 }
