@@ -60,7 +60,6 @@ class DataTable extends React.Component {
                 else
                     return String.fromCharCode(index + 63);
             },
-            height: 300,
             colWidths: [16],
             rowHeaderWidth: 40,
             cells: (row, col) => {
@@ -99,13 +98,16 @@ class DataTable extends React.Component {
 
         return <>
             <DataTableHeaderWithStyle {...this.props}/>
-            <Grid container justify={"center"} spacing={16}>
+            <Grid container justify={"center"} spacing={16} style={{marginBottom: '10px'}}>
                 <Grid item xs={11} container spacing={16}>
                     <Grid item xs={12}>
-                        <div id="hot-app" style={{overflow: 'hidden', position: 'relative'}}>
-                            <HotTable ref={this.hotTableComponent} data={this.props.data} settings={this.hotSettings}
-                                      width="80%"
-                                      stretchH="all"/>
+                        <div id="hot-app" style={{overflow: 'hidden', position: 'relative', height: 'calc(100vh - 520px)'}}>
+                            <HotTable
+                                ref={this.hotTableComponent}
+                                data={this.props.data}
+                                settings={this.hotSettings}
+                                stretchH="all"
+                            />
                             {this.state.isOpenedColorPicker && <div className={classes.colorPickerFrame}>
                                 <div className={classes.cover} onClick={this.handleCloseColorPicker}/>
                                 <SketchPicker

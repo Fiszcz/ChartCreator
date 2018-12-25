@@ -22,12 +22,12 @@ class DataTableHeader extends React.Component {
 
         return <Grid container justify={"center"} spacing={16}>
             <Grid item xs={11} container spacing={16}>
-                <Grid item xs={6}>
+                <Grid item xs={4}>
                     <Typography component="h2" variant="display1" gutterBottom>
-                        Dane do wykresu:
+                        Dane:
                     </Typography>
                 </Grid>
-                <Grid item xs={6} style={{textAlign: 'right'}}>
+                <Grid item xs={8} style={{textAlign: 'right'}}>
                     <Button color="inherit" className={classes.goBackButton} onClick={this.handleNewRow}>
                         <ViewWeek className={classnames(classes.icon, classes.rowAddIcon)}/>
                         Dodaj wiersz

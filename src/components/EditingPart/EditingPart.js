@@ -10,9 +10,8 @@ import {DataTableContainer} from "../../containers/dataTableContainer";
 const styles = {
     card: {
         width: '100%',
-        // height: '40vh',
+        height: 'calc(100vh - 64px)',
         backgroundColor: '#e3e3e3d6',
-        marginBottom: '3px',
     },
 };
 

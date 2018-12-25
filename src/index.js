@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import {App} from "./App";
+import {AppComponentWithStyle} from "./App";
 import {Provider} from "react-redux";
 import {createStore} from "redux";
 import {undoableChartsApp} from "./reducers";
@@ -10,7 +10,7 @@ import {undoableChartsApp} from "./reducers";
 const store = createStore(undoableChartsApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(<Provider store={store}>
-        <App/>
+        <AppComponentWithStyle/>
     </Provider>,
     document.getElementById('root'));
 

@@ -10,6 +10,7 @@ export class Chart extends React.Component {
                 <Plot
                     data={this.preparationDataToChart()}
                     layout={{
+                        width: window.innerWidth / 2 - 8,
                         title: this.props.title || '',
                         yaxis: {title: this.props.titleAxisY},
                         xaxis: {title: this.props.titleAxisX},

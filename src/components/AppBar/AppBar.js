@@ -22,7 +22,7 @@ class ApplicationBar extends React.Component {
     render() {
         const {classes} = this.props;
 
-        return <AppBar position="static" style={{marginBottom: '5px'}}>
+        return <AppBar position="static" style={{position: 'relative'}}>
             <Toolbar style={{'flexGrow': 1}}>
                 <Typography variant="h6" color="inherit">
                     Charts Project
